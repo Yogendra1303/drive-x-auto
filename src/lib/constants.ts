@@ -1,6 +1,7 @@
 export const BRAND_NAME = 'Drive X Auto';
 export const BRAND_TAGLINE = 'Complete Car Care. All in One Place.';
-export const WHATSAPP_NUMBER = '9971715176';
+export const WHATSAPP_COUNTRY_CODE = '+91';
+export const WHATSAPP_NUMBER = '919971715176';
 
 /**
  * Builds a safe, encoded WhatsApp deep-link URL for Drive X Auto inquiries.
