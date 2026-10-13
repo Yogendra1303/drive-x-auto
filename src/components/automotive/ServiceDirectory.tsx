@@ -17,7 +17,7 @@ export function ServiceDirectory({ onViewDetails }: ServiceDirectoryProps) {
   const filterTabs: { id: FilterGroup; label: string }[] = [
     { id: 'all', label: 'All Categories' },
     { id: 'maintenance', label: 'Scheduled Maintenance' },
-    { id: 'mechanical', label: 'Mechanical & Powertrain' },
+    { id: 'mechanical', label: 'Mechanical & AC' },
     { id: 'body-detailing', label: 'Body, Paint & Detailing' },
     { id: 'safety-support', label: 'Diagnostics & Support' },
   ];
@@ -61,7 +61,7 @@ export function ServiceDirectory({ onViewDetails }: ServiceDirectoryProps) {
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-slate-300 max-w-lg leading-relaxed">
-            From routine servicing and AC repair to tyres, diagnostics, detailing and bodywork, find the right care for your vehicle.
+            From routine servicing and AC repair to tyres, diagnostics, detailing, and bodywork, find the right care for your vehicle across 14 specialized categories.
           </p>
         </div>
 

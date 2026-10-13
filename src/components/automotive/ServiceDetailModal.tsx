@@ -23,7 +23,6 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
     if (service) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-      // Auto-focus close button for screen reader & keyboard accessibility
       setTimeout(() => closeButtonRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = '';
@@ -37,7 +36,9 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
 
   if (!service) return null;
 
-  const whatsappUrl = getWhatsAppUrl(service.title);
+  const whatsappUrl = getWhatsAppUrl({
+    serviceTitle: service.title,
+  });
 
   return (
     <div

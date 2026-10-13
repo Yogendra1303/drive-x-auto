@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { AutomotiveService } from '@/types';
 import { Navbar } from '@/components/layout/Navbar';
 import { HeroSection } from '@/components/automotive/HeroSection';
-import { VehicleStageBoundary } from '@/components/three/VehicleStageBoundary';
 import { ServiceDirectory } from '@/components/automotive/ServiceDirectory';
 import { WorkshopCapabilities } from '@/components/automotive/WorkshopCapabilities';
 import { ServiceWorkflow } from '@/components/automotive/ServiceWorkflow';
 import { BookingSection } from '@/components/automotive/BookingSection';
+import { FaqSection } from '@/components/automotive/FaqSection';
 import { Footer } from '@/components/layout/Footer';
 import { MobileBottomBar } from '@/components/layout/MobileBottomBar';
 import { ServiceDetailModal } from '@/components/automotive/ServiceDetailModal';
@@ -22,7 +22,7 @@ export default function Home() {
     if (service) {
       setSelectedServiceForEnquiry(service);
     }
-    const enquiryElement = document.getElementById('enquiry');
+    const enquiryElement = document.getElementById('custom-repair') || document.getElementById('enquiry');
     if (enquiryElement) {
       enquiryElement.scrollIntoView({ behavior: 'smooth' });
     }
@@ -33,46 +33,44 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#08090C] text-slate-100 font-sans selection:bg-yellow-400 selection:text-black">
-      {/* Branded Header with WhatsApp Enquire Button */}
+    <div className="min-h-screen flex flex-col bg-[#07080B] text-slate-100 font-sans selection:bg-yellow-400 selection:text-black">
+      {/* Branded Sticky Header with Navigation & WhatsApp Book Action */}
       <Navbar />
 
       <main className="flex-1 pb-16 md:pb-0">
-        {/* Hero Section */}
+        {/* Hero Section — Primary Conversion & Fast Booking Area */}
         <HeroSection onOpenEnquiry={() => handleOpenEnquiry()} />
 
-        {/* Strategy B Decoupled 3D Interactive Stage Showcase */}
-        <VehicleStageBoundary />
+        {/* 14 Confirmed Service Categories Discovery Directory */}
+        <ServiceDirectory onViewDetails={handleViewDetails} />
 
-        {/* 14 Confirmed Service Categories Directory */}
-        <ServiceDirectory
-          onViewDetails={handleViewDetails}
-        />
-
-        {/* Workshop Capabilities */}
+        {/* Why Choose Us — Workshop Capabilities & Trust Highlights */}
         <WorkshopCapabilities />
 
-        {/* 4-Step Transparent Service Workflow */}
+        {/* How It Works — 4-Step Transparent Customer Workflow */}
         <ServiceWorkflow />
 
-        {/* Customer Enquiry Section */}
+        {/* Custom Repair & Symptom Enquiry Section */}
         <BookingSection
           key={selectedServiceForEnquiry?.id ?? 'default'}
           selectedService={selectedServiceForEnquiry}
           onClearSelectedService={() => setSelectedServiceForEnquiry(null)}
         />
+
+        {/* FAQs — Concise, Accessible Questions & Answers Accordion */}
+        <FaqSection />
       </main>
 
-      {/* Footer */}
+      {/* Professional Footer with Direct Links, Working Hours & Contact */}
       <Footer />
 
       {/* Fixed Bottom Action Bar for Mobile Viewports */}
       <MobileBottomBar />
 
-      {/* Persistent Floating WhatsApp Contact Button */}
+      {/* Persistent Floating WhatsApp Concierge Widget */}
       <FloatingWhatsAppButton />
 
-      {/* Service Detail Modal / Slide-up Bottom Sheet with WhatsApp Book Now */}
+      {/* Accessible Service Detail Modal / Slide-up Bottom Sheet */}
       <ServiceDetailModal
         service={detailModalService}
         onClose={() => setDetailModalService(null)}

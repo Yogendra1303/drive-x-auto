@@ -34,16 +34,16 @@ export function Navbar() {
                 <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 ml-0.5" aria-hidden="true"></span>
               </span>
               <span className="text-[10px] uppercase tracking-widest text-slate-400 font-mono">
-                Automotive Care
+                Complete Car Care
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main Navigation">
             {NAV_LINKS.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className="text-sm font-medium text-slate-300 hover:text-yellow-400 transition-colors tracking-wide py-1 focus-visible:outline-none focus-visible:text-yellow-400 focus-visible:underline"
               >
@@ -58,11 +58,10 @@ export function Navbar() {
               href={generalWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Enquire with Drive X Auto on WhatsApp"
+              aria-label="Book a service with Drive X Auto on WhatsApp"
               className="hidden sm:inline-flex items-center justify-center gap-2 px-4 py-2 text-xs md:text-sm font-bold text-black bg-yellow-400 hover:bg-yellow-300 active:scale-[0.98] transition-all rounded-md tracking-wider uppercase shadow-sm shadow-yellow-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white min-h-[40px]"
             >
-              <span>Enquire Now</span>
-              {/* Subtle WhatsApp / Arrow icon */}
+              <span>Book a Service</span>
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.188 8.188 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.45 0-2.88-.38-4.14-1.11l-.3-.17-3.12.82.83-3.04-.19-.31a8.196 8.196 0 0 1-1.26-4.44c0-4.54 3.7-8.24 8.24-8.24z" />
               </svg>
@@ -90,11 +89,11 @@ export function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-white/10 bg-[#0B0D12] px-4 pt-3 pb-6 space-y-3">
-          <nav className="flex flex-col space-y-2">
+        <div className="lg:hidden border-t border-white/10 bg-[#0B0D12] px-4 pt-3 pb-6 space-y-3 shadow-2xl">
+          <nav className="flex flex-col space-y-1.5" aria-label="Mobile Navigation">
             {NAV_LINKS.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2.5 text-sm font-medium text-slate-200 hover:text-yellow-400 hover:bg-white/5 rounded-md transition-colors min-h-[44px] flex items-center"
@@ -109,9 +108,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 px-4 text-center text-sm font-bold text-black bg-yellow-400 hover:bg-yellow-300 rounded-md tracking-wider uppercase flex items-center justify-center gap-2 min-h-[44px]"
+              className="w-full py-3 px-4 text-center text-sm font-bold text-black bg-yellow-400 hover:bg-yellow-300 rounded-md tracking-wider uppercase flex items-center justify-center gap-2 min-h-[44px] shadow-sm shadow-yellow-400/20"
             >
-              <span>Enquire on WhatsApp</span>
+              <span>Book a Service on WhatsApp</span>
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
               </svg>
